@@ -1,0 +1,71 @@
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <vector>
+#include <list>
+#include "assignment9.h"
+using namespace std;
+
+
+graph::graph ( const char* filename ){
+	ifstream fin;
+	int lineCount = 0;
+	char buf;
+	string line;
+	fin.open(filename);
+	if (fin.is_open()){
+		for (int i = 0; i < 8; ++i)//Cycle through the data we dont need
+			fin >> buf;
+		while(!fin.eof()){
+			fin >> buf;//This is the label of the line
+			labels[lineCount] = buf;
+
+			for (int i = 0; i < 7; ++i){
+				fin >> buf;
+				adj_list[lineCount][i] = buf;
+			}
+			++lineCount;
+		}
+
+	}
+
+//	if (fin.is_open()){
+//		while ( getline(fin,line) ){
+//			
+//		}
+//	}
+
+
+	fin.close();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#define ASSIGNMENT9_TEST
+#ifdef 	ASSIGNMENT9_TEST
+
+int main(int argc, char** argv) {
+    if ( argc < 2 ) {
+        cerr << "args: input-file-name\n";
+        return 1;
+    }
+    
+    graph g(argv[1]);
+
+    g.print();
+    
+    g.traverse();
+
+    return 0;
+}
+
+#endif

@@ -1,0 +1,17 @@
+The size of the graph is: 7
+
+--------Graph--------
+A:  B, G
+B:  A, D, E
+C:  F
+D:  B, E
+E:  B, D
+F:  C
+G:  A
+------End of Graph-----
+
+Starting at vertex: A
+------The Traversed Path is----------
+  A  B  D  E  G  F
+( A, B ) ( B, D ) ( D, E ) ( A, G ) ( C, F ) 
+---------End of Traversal------------
